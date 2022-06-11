@@ -1,0 +1,4 @@
+<p>Angular 12 with routing test</p>
+
+<search (userId)="userId = $event"></search>
+<results *ngIf="userId" [userId]="userId"></results>
