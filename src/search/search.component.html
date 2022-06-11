@@ -1,7 +1,13 @@
-<input type="text" [(ngModel)]="value" />
+<p>Search For User</p>
+<input
+  type="text"
+  (keyup.enter)="dataService.setUserId(value)"
+  [(ngModel)]="value"
+/>
 <button
   [disabled]="!value || value.length === 0"
   (click)="dataService.setUserId(value)"
+  class="submit-btn"
 >
   Submit
 </button>
