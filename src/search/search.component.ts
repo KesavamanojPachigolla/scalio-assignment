@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { DataService } from '../app/data.service';
 
 @Component({
   selector: 'search',
@@ -6,10 +7,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
-  @Output() userId: EventEmitter<string> = new EventEmitter();
   value: string;
 
-  constructor() {}
+  constructor(public dataService: DataService) {}
 
   ngOnInit() {}
 }

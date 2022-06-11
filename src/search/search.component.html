@@ -1,2 +1,7 @@
 <input type="text" [(ngModel)]="value" />
-<button (click)="userId.emit(value)">Submit</button>
+<button
+  [disabled]="!value || value.length === 0"
+  (click)="dataService.setUserId(value)"
+>
+  Submit
+</button>

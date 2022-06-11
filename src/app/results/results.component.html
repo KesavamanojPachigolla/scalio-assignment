@@ -1,1 +1,37 @@
-<p *ngIf="data$">{{ data$ | async | json }}</p>
+<ng-container *ngIf="data$">
+  <div class="mat-elevation-z8">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      matSort
+      matSortActive="login"
+      matSortDirection="asc"
+    >
+      <!-- Position Column -->
+      <ng-container matColumnDef="avatar_url">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Avatar</th>
+        <td mat-cell *matCellDef="let element">
+          <img [src]="element.avatar_url" [title]="element.avatar_url" />
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="login">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Login</th>
+        <td mat-cell *matCellDef="let element">{{ element.login }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
+        <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[9]" showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</ng-container>
