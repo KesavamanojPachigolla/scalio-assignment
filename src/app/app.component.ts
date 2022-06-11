@@ -8,5 +8,5 @@ import { DataService } from './data.service';
 })
 export class AppComponent {
   userId$ = this.dataService.getUserId();
-  constructor(public dataService: DataService) {}
+  constructor(private dataService: DataService) {}
 }
